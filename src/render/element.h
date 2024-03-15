@@ -1,6 +1,7 @@
 #pragma once
 
 #include <raylib.h>
+#include <raymath.h>
 
 /*
  *  A `Element` represents the abstraction of anything that can be emulated inside on the program.
@@ -16,6 +17,6 @@ public:
     virtual void Update() = 0;
     virtual void Draw() = 0;
 
-private:
+protected:
     Vector2 position_;
 };

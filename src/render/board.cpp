@@ -2,7 +2,7 @@
 
 void Board::Update() 
 {
-
+    // Nothing to update yet...
 }
 
 void Board::Draw() const 
@@ -16,8 +16,8 @@ void Board::Draw() const
 void Board::DrawGrid() const
 {
     // TODO: Get this values from `App` class...
-    const int width = kCellSize * 100;
-    const int height = kCellSize * 100;
+    const int width = kCellSize * 120;
+    const int height = kCellSize * 120;
 
     // Draw columns
     for (float x = 0; x <= width; x += kCellSize)
@@ -42,5 +42,8 @@ void Board::DrawGrid() const
 
 void Board::DrawElements() const
 {
-
+    for (auto& e: elements_)
+    {
+        e->Draw();
+    }
 }

@@ -5,6 +5,10 @@ void App::Run() {
     InitWindow(width_, height_, title_.c_str());
     MaximizeWindow();
 
+    Setup();
+
+    board_ = std::make_unique<Board>(and_gate_texture_);
+
     SetTargetFPS(kFPS);
 
     while (!WindowShouldClose()) {
@@ -12,14 +16,15 @@ void App::Run() {
         // =================================
         MoveCamera();
         ApplyZoom();
-        board_.Update();
+
+        board_->Update();
 
         // Draw
         // ==================================
         BeginDrawing();
         BeginMode2D(camera_);
 
-        board_.Draw();
+        board_->Draw();
 
         EndMode2D();
         EndDrawing();
@@ -28,12 +33,17 @@ void App::Run() {
     Close();
 }
 
+void App::Setup()
+{
+    and_gate_texture_ = LoadTexture("src/icons/gates/and.png");
+}
+
 void App::ApplyZoom() {
     auto scroll = GetMouseWheelMove();
     if (scroll == 0) return;
 
     /*
-     * The following was extracted direct from raylib examples
+     * The following code was extracted direct from raylib examples
      */
 
     auto mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), camera_);
@@ -57,5 +67,7 @@ void App::MoveCamera() {
 }
 
 void App::Close() const {
+    UnloadTexture(and_gate_texture_);
+
     CloseWindow();
 }
