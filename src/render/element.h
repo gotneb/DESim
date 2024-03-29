@@ -53,6 +53,7 @@ public:
     // Returns the `position`
     inline
     Vector2 Position() const { return shape_.position; }
+    
 
     // Returns the `width`
     inline
@@ -60,6 +61,13 @@ public:
     // Returns the `height`
     inline
     float Height() const { return shape_.size.height; }
+
+protected:
+    // Set the `position`
+    inline
+    void SetPosition(const Vector2& new_position) { 
+        shape_.position = new_position;
+    }
 
 private:
     Shape shape_;

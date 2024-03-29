@@ -1,4 +1,6 @@
 #pragma once
+
+#include <format>
 #include "../element.h"
 
 class AndGate : public Element {
@@ -7,13 +9,15 @@ public:
         : Element(position, {4 * 34, 4*34}),
           texture_(texture) {}
 
-    void Update() override {}
+    void Update() override;
     void Draw() override;
 
 private:
-    Texture2D& texture_;
+    bool IsMouseInside() const;
+    void Move();
+    void CheckMoveState();
 
-// private:
-//     bool IsMouseInside() const;
-//     void Move();
+private:
+    Texture2D& texture_;
+    bool canFollowMouse_;
 };

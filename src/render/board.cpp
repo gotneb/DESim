@@ -2,7 +2,18 @@
 
 void Board::Update() 
 {
-    // Nothing to update yet...
+    for (auto& e: elements_)
+    {
+        e->Update();
+    }
+}
+
+void Board::DrawElements() const
+{
+    for (auto& e: elements_)
+    {
+        e->Draw();
+    }
 }
 
 void Board::Draw() const 
@@ -37,13 +48,5 @@ void Board::DrawGrid() const
             {width, y},
             grid_color_
         );
-    }
-}
-
-void Board::DrawElements() const
-{
-    for (auto& e: elements_)
-    {
-        e->Draw();
     }
 }
