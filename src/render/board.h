@@ -24,7 +24,11 @@ public:
                 std::make_shared<AndGate>(
                     Vector2{20 * kCellSize, 8 * kCellSize},
                     texture
-                )
+                ),
+                std::make_shared<AndGate>(
+                    Vector2{16 * kCellSize, 12 * kCellSize},
+                    texture
+                ),
             };
         }
 

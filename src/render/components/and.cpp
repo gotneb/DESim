@@ -13,11 +13,11 @@ void AndGate::Draw()
     // Debug
     DrawText(
         std::format("BOX: ({}, {})", X(), Y()).c_str(),
-        200, 10, 20, BLACK
+        GetScreenWidth() - 300, 10, 20, BLACK
     );
     DrawText(
         std::format("MOUSE: ({}, {})", GetMousePosition().x, GetMousePosition().y).c_str(), 
-        200, 30, 20, RED
+        GetScreenWidth() - 300, 30, 20, RED
     );
 
     DrawTextureV(texture_, Position(), RAYWHITE);

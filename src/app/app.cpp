@@ -35,7 +35,7 @@ void App::Run() {
 
 void App::Setup()
 {
-    and_gate_texture_ = LoadTexture("src/icons/gates/and.png");
+    and_gate_texture_ = LoadTexture("src/icons/gates/and_white.png");
 }
 
 void App::ApplyZoom() {

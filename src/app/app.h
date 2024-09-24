@@ -1,5 +1,10 @@
 #pragma once
 
+// Needed by raylib (from docs)
+#ifndef RAYGUI_IMPLEMENTATION
+#define RAYGUI_IMPLEMENTATION
+#endif
+
 #include <raylib.h>
 #include <cstdint>
 #include <string>
